@@ -1,18 +1,20 @@
-import { BrowserRouter } from 'react-router-dom';
-import { AppRoutes } from './app/routes';
-import { useEffect, useState } from 'react';
-import { useAuthStore } from './features/auth/store/authStore';
-import { LoadingScreen } from './components/ui/LoadingScreen';
-import { SecretAdminModal } from './components/ui/SecretAdminModal';
-import { AnimatePresence } from 'framer-motion';
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./app/routes";
+import { useEffect, useState } from "react";
+import { useAuthStore } from "./features/auth/store/authStore";
+import { LoadingScreen } from "./components/ui/LoadingScreen";
+import { SecretAdminModal } from "./components/ui/SecretAdminModal";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const { checkAuth } = useAuthStore();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    checkAuth();
-    setIsLoading(false);
+    (async () => {
+      await checkAuth();
+      setIsLoading(false);
+    })();
   }, []);
 
   return (
