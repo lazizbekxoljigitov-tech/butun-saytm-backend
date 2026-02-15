@@ -1,0 +1,126 @@
+@import './mobile.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ff7a18;
+  --dark-bg: #0a0a0b;
+  --dark-surface: #161617;
+  --dark-border: #2a2a2d;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-white font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(255, 122, 24, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(255, 122, 24, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold font-sans;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-dark-light/60 backdrop-blur-md border border-dark-border/50;
+  }
+  
+  .glass-card {
+    @apply bg-dark-light/40 backdrop-blur-lg border border-dark-border/30 rounded-xl hover:border-primary/30 transition-all duration-300;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .premium-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, #ff4b2b 100%);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(255, 122, 24, 0.4);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 15px rgba(255, 122, 24, 0.6);
+  }
+
+  .nav-link {
+    @apply text-gray-400 hover:text-white transition-all duration-300 relative py-1;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 rounded-full;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .nav-link-active {
+    @apply text-white font-black;
+  }
+
+  .nav-link-active::after {
+    @apply w-full;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-white font-black uppercase italic tracking-tighter py-3 px-8 rounded-xl transition-all transform active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/40;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-primary/50 text-white hover:bg-primary hover:border-primary font-bold py-3 px-8 rounded-xl transition-all transform active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-dark-accent hover:bg-dark-border text-white font-bold py-3 px-8 rounded-xl transition-all;
+  }
+}
+
+/* Page Transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-dark-bg;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-border rounded-full hover:bg-primary transition-all duration-300;
+}
+
+/* Anime Card Hover */
+.anime-card-overlay {
+  background: linear-gradient(to top, rgba(10, 10, 11, 0.95) 0%, rgba(10, 10, 11, 0.4) 50%, transparent 100%);
+}
+
+.framer-motion-container {
+  will-change: transform, opacity;
+}
+
+/* Text Selection */
+::selection {
+  @apply bg-primary/30 text-white;
+}

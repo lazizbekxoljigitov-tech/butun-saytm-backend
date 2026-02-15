@@ -1,0 +1,45 @@
+{
+  "name": "anilegeon-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@supabase/supabase-js": "^2.95.3",
+    "axios": "^1.6.2",
+    "build": "^0.1.4",
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.5",
+    "i18next": "^23.16.8",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "lucide-react": "^0.292.0",
+    "peerjs": "^1.5.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-i18next": "^13.5.0",
+    "react-router-dom": "^6.20.0",
+    "socket.io-client": "^4.8.3",
+    "tailwind-merge": "^2.0.0",
+    "zustand": "^4.4.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.9.3",
+    "vite": "^5.0.0",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}

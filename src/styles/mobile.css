@@ -1,0 +1,152 @@
+/* 
+  Anilegeon Premium Mobile UI System 
+  Focus: 100/100 Performance, Accessibility, and Responsive Excellence
+*/
+
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+}
+
+/* 1. Reset & Global Mobile Style */
+* {
+  -webkit-tap-highlight-color: transparent;
+  outline-offset: 4px; /* Better focus visibility for accessibility */
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+body {
+  padding-bottom: var(--safe-area-bottom);
+}
+
+/* 2. Enhanced Typography per Screen Size */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+    line-height: 1.1 !important;
+  }
+  
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+
+  .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+/* 3. Touch Target Excellence (v accessibility 100%) */
+button, 
+a, 
+input, 
+select, 
+textarea {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+}
+
+/* 4. Layout Fixes */
+.min-h-screen-dvh {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* 5. Horizontal Scroll Indicators (Media Excellence) */
+.scroll-indicator::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to left, var(--dark-bg), transparent);
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* 6. Dynamic Hero Height */
+@media (max-width: 768px) {
+  .hero-container {
+    height: 70vh !important;
+    border-radius: 0 !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .hero-content {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+/* 7. Performance: Glassmorphism Blur Levels */
+@media (max-width: 640px) {
+  .glass, .glass-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+/* 8. Utility Classes for Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 9. PWA / Standalone Optimization */
+@media (display-mode: standalone) {
+  header {
+    padding-top: calc(var(--safe-area-top) + 0.5rem) !important;
+  }
+  
+  .bottom-nav {
+    padding-bottom: var(--safe-area-bottom) !important;
+  }
+}
+
+/* 10. Smooth Scroll Prevention for CLS */
+.image-loading {
+  background: #161617;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
